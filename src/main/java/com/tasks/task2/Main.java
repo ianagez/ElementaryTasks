@@ -18,7 +18,7 @@ public class Main {
                 sides[i]=readOneSide(reader,sideNames[i]);
             }
 
-            System.out.println(new Envelope(sides[0],sides[1]).infold(new Envelope(sides[2],sides[3])));
+            System.out.println(new Envelope(sides[0],sides[1]).putInto(new Envelope(sides[2],sides[3])));
 
             System.out.println("Would you like to continue?");
             String answer=reader.readLine();
