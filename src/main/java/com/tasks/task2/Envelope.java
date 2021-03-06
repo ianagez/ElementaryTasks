@@ -1,6 +1,7 @@
 package com.tasks.task2;
 
 public class Envelope {
+
     private double height;
     private double width;
 
@@ -8,9 +9,7 @@ public class Envelope {
     private double shortSide;
     private double area;
 
-
     public Envelope(double height,double width){
-
         this.height=height;
         this.width=width;
         area=height*width;
@@ -18,7 +17,7 @@ public class Envelope {
         shortSide=Math.min(height,width);
     }
 
-    public boolean infold(Envelope other){
+    public boolean putInto(Envelope other){
         if(Math.abs(this.area-other.area) <0.001)
             return false;
 
@@ -27,8 +26,7 @@ public class Envelope {
 
         if(smaller.shortSide<bigger.shortSide && smaller.longSide<bigger.longSide)
             return true;
-
-        // TODO calculate diagonal replacement
-        return false;
+        return Math.sqrt((Math.pow(bigger.shortSide,2) + Math.pow(bigger.shortSide,2)))>
+                (smaller.shortSide+smaller.longSide);
     }
 }
