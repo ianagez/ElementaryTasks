@@ -1,66 +1,65 @@
 package com.tasks.task2;
 
-import java.util.Scanner;
-
 public class Task2 extends Task{
     public Task2(Messenger messenger) {
         super(messenger);
     }
 
     @Override
-    protected void run() {
-        System.out.println("Let's check if envelopes fit one into another.");
-        readSides();
-
+    public void run() {
+        messenger.sendMessage(StringConsts.FIRST_MESSAGE);
+      double[] envelopeSides = getAllSides();
+        if(isFittedIn(envelopeSides)){
+            messenger.sendMessage(StringConsts.IS_FITTED);
+        } else{
+            messenger.sendMessage(StringConsts.IS_NOT_FITTED);
+        }
+        if(runOneMoreTime()){
+            run();
+           // return;
+        } else messenger.sendMessage(StringConsts.BYE);
     }
-    public static void readSides(){
-        String[] sideNames= {"a","b","c","d"};
-        double[] sides=new double[4];
 
+    private double[] getAllSides(){
+        String[] sideNames= StringConsts.SIDE_NAMES;
+        double[] sides=new double[sideNames.length];
         for (int i = 0; i < sideNames.length; i++) {
-            sides[i]=readOneSide(sideNames[i]);
+            sides[i]= getOneSide(sideNames[i]);
         }
-
-        // System.out.println(new Envelope(sides[0],sides[1]).putInto(new Envelope(sides[2],sides[3])));
-        System.out.println
-                (RectangleManipulator
-                        .isFittedInto
-                                (new Envelope(sides[0],sides[1]),new Envelope(sides[2],sides[3])));
-
-        System.out.println("Would you like to continue?");
-        String answer=readConsole();
-        if(answer.equalsIgnoreCase("y")
-                || answer.equalsIgnoreCase("yes")){
-            readSides();
-        }
+        return sides;
     }
 
-    public static double readOneSide(String sideName){
-        System.out.println("Enter side "+sideName+".");
-        String line=readConsole();
+    private  double getOneSide(String sideName){
+        messenger.sendMessage(StringConsts.ENTER_SIDE+" "+sideName+".");
+        String line=messenger.getMessage();
         double side;
         if(isDouble(line)){
             side=Double.parseDouble(line);
             if(side>0){ return side; }
-            else { System.out.println("Height and width should be more than 0."); }
-        } else {
-            System.out.println("Height and width should be more than 0.");
+            else { messenger.sendMessage(StringConsts.MORE_THAN_ZERO); }
         }
-        return readOneSide(sideName);
+        return getOneSide(sideName);
     }
 
-    public static String readConsole() {
-        Scanner sc=new Scanner(System.in);
-        return sc.nextLine();
+    private boolean isFittedIn(double[] sides){
+      return RectangleManipulator
+                        .isFittedInto
+                                (new Envelope(sides[0],sides[1]),new Envelope(sides[2],sides[3]));
+    }
+    private boolean runOneMoreTime() {
+        messenger.sendMessage(StringConsts.LIKE_TO_CONTINUE);
+        String answer = messenger.getMessage();
+        return answer.equalsIgnoreCase(StringConsts.Y)
+                || answer.equalsIgnoreCase(StringConsts.YES);
     }
 
-    public static boolean isDouble(String line){
+    private boolean isDouble(String line){
         try {
             Double.parseDouble(line);
             return true;
         }catch (NumberFormatException e){
-            System.out.println("Wrong number format. Try again.");
+            messenger.sendMessage(StringConsts.WRONG_NUMBER_FORMAT);
+            return false;
         }
-        return false;
     }
 }
