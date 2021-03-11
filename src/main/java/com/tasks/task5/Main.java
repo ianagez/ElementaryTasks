@@ -1,48 +1,11 @@
 package com.tasks.task5;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO ZEROES CHECK
-        //STRING LENGTH
-        String StringNumber="40".trim();
-
-        boolean isNegative=false;
-
-        if(StringNumber.charAt(0)=='-'){
-            isNegative=true;
-            StringNumber=StringNumber.substring(0);
-        }
-
-
-        for (int i = 0; i < StringNumber.length(); i++) {
-            if(StringNumber.charAt(0)=='0'){
-                StringNumber=StringNumber.substring(0);
-            }
-            break;
-        }
-
-        printNumber(StringNumber, isNegative);
-
-    }
-    //todo boolean minus
-    public static void printNumber(String numberString, boolean isNegative){
-
-        Map<Integer,String> hashMapToNineteen=hashMapToNineteen = new HashMap<>();
+        Map<Integer,String> hashMapToNineteen = new HashMap<>();
         Map<Integer,String> hashMapDecades = new HashMap<Integer,String>();
-
-
-        int number=Integer.parseInt(numberString);
-
-
-        ArrayList<String> resultList=new ArrayList<>();
-        if(isNegative){
-            resultList.add("minus");
-        }
 
         hashMapToNineteen.put(0,"zero");
         hashMapToNineteen.put(1,"one");
@@ -66,31 +29,54 @@ public class Main {
         hashMapToNineteen.put(19,"nineteen");
 
 
-        hashMapDecades.put(20,"twenty");
-        hashMapDecades.put(30,"thirty");
-        hashMapDecades.put(40,"forty");
-        hashMapDecades.put(50,"fifty");
-        hashMapDecades.put(60,"sixty");
-        hashMapDecades.put(70,"seventy");
-        hashMapDecades.put(80,"eighty");
-        hashMapDecades.put(90,"ninety");
+        hashMapDecades.put(2,"twenty");
+        hashMapDecades.put(3,"thirty");
+        hashMapDecades.put(4,"forty");
+        hashMapDecades.put(5,"fifty");
+        hashMapDecades.put(6,"sixty");
+        hashMapDecades.put(7,"seventy");
+        hashMapDecades.put(8,"eighty");
+        hashMapDecades.put(9,"ninety");
+        // TODO ZEROES CHECK
+        //STRING LENGTH
+       // String StringNumber="40".trim();
+        ArrayList<String> numberInWords=new ArrayList<>();
 
 
-        String hundred="hundred";
-        String thousand="thousand";
+        int number=-1;
 
-        if(number<20) {
-            resultList.add(hashMapToNineteen.get(number));
-        }else if(number>19 && number<100){
-            char hundredValue=numberString.charAt(0);
-            resultList.add(hashMapToNineteen.get(Integer.parseInt(String.valueOf(hundredValue))));
-            resultList.add("hundred");
-            String dec=numberString.substring(0);
-            resultList.add(hashMapToNineteen.get(Integer.parseInt(dec)));
-            //numberString.substring(0);
-            String[] arr=resultList.toArray(new String[resultList.size()]);
-            System.out.println(String.join(" ",arr));
+        if (number==0){
+            numberInWords.add("zero");
+        }else if(number<0){
+            numberInWords.add("minus");
+            number=Math.abs(number);
         }
+
+        int numberLength = getNumberLength(number);
+        if(numberLength==1){
+            numberInWords.add(hashMapToNineteen.get(number));
+        }else if(numberLength==2 && number<20){
+            numberInWords.add(hashMapToNineteen.get(number));
+        }else if(numberLength==2 && number>20){
+            if(number%10==0) numberInWords.add(hashMapDecades.get(number));
+            else {
+                int dec=number/10;
+                int units=number-dec*10;
+                numberInWords.add(hashMapDecades.get(dec));
+                numberInWords.add(hashMapToNineteen.get(units));
+            }
+        }
+        for (String s: numberInWords) {
+            System.out.println(s);
+        }
+    }
+    public static int getNumberLength(int number){
+        int numberLength=0;
+        while (number>0){
+            number=number/10;
+            numberLength++;
+        }
+        return numberLength;
     }
 }
 
