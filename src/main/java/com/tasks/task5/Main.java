@@ -28,7 +28,6 @@ public class Main {
         hashMapToNineteen.put(18,"eighteen");
         hashMapToNineteen.put(19,"nineteen");
 
-
         hashMapDecades.put(2,"twenty");
         hashMapDecades.put(3,"thirty");
         hashMapDecades.put(4,"forty");
