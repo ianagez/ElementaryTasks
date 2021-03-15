@@ -5,7 +5,7 @@ public interface StringConsts {
     String ENTER_SIDE="Enter side";
     String IS_FITTED="Yes! It is possible to fit one envelope into another.";
     String IS_NOT_FITTED="No! It is impossible to fit one envelope into another.";
-    String LIKE_TO_CONTINUE="Would you like to continue?";
+    String LIKE_TO_CONTINUE="Would you like to continue?"+"("+StringConsts.Y+"/"+StringConsts.YES+")";
     String WRONG_NUMBER_FORMAT="Wrong number format.";
     String MORE_THAN_ZERO="Height and width should be more than 0.";
     String Y="y";
