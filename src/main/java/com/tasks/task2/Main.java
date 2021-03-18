@@ -1,5 +1,6 @@
 package com.tasks.task2;
-import java.util.Scanner;
+import com.tasks.common.ConsoleMessenger;
+import com.tasks.common.Task;
 
 public class Main {
 

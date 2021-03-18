@@ -1,16 +1,18 @@
-package com.tasks.task2;
+package com.tasks.common;
+
+import com.tasks.common.Messenger;
 
 import java.util.Scanner;
 
-public class ConsoleMessenger extends Messenger{
+public class ConsoleMessenger extends Messenger {
 
     @Override
-    protected void sendMessage(String message) {
+    public void sendMessage(String message) {
         System.out.println(message);
     }
 
     @Override
-    protected String getMessage() {
+    public String getMessage() {
         Scanner scanner=new Scanner(System.in);
         return scanner.nextLine();
     }

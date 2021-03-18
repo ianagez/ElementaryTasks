@@ -1,6 +1,9 @@
 package com.tasks.task2;
 
-public class Task2 extends Task{
+import com.tasks.common.Messenger;
+import com.tasks.common.Task;
+
+public class Task2 extends Task {
     public Task2(Messenger messenger) {
         super(messenger);
     }
