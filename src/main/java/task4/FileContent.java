@@ -1,4 +1,4 @@
-package com.tasks.task4;
+package task4;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ public class FileContent {
     }
 
     public StringBuilder downloadTextToStringBuilder(String filePath){
-        StringBuilder builder= new StringBuilder("");
+        StringBuilder builder= new StringBuilder();
         File file=new File("tale.txt");
         //File file=new File(filePath); TODO delete stub
         try(BufferedReader reader=new BufferedReader(new FileReader(file))){
@@ -24,7 +24,7 @@ public class FileContent {
         }catch (IOException e){
             //TODO new Exception contenet not downloaded err
             e.printStackTrace();
-        };
+        }
         return builder;
     }
 

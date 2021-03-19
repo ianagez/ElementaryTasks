@@ -1,7 +1,7 @@
-package com.tasks.task4;
+package task4;
 
-import com.tasks.common.Task;
-import com.tasks.common.Messenger;
+import common.Task;
+import common.Messenger;
 
 public class Task4 extends Task {
 

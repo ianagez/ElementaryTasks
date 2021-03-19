@@ -1,4 +1,4 @@
-package com.tasks.task5;
+package task5;
 
 
 import java.util.Objects;

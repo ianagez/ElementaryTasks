@@ -1,4 +1,4 @@
-package com.tasks.task2;
+package task2;
 
 public class Envelope extends Rectangle{
 

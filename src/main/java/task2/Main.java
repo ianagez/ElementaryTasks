@@ -1,6 +1,6 @@
-package com.tasks.task2;
-import com.tasks.common.ConsoleMessenger;
-import com.tasks.common.Task;
+package task2;
+import common.ConsoleMessenger;
+import common.Task;
 
 public class Main {
 

@@ -1,7 +1,7 @@
-package com.tasks.task2;
+package task2;
 
-import com.tasks.common.Messenger;
-import com.tasks.common.Task;
+import common.Messenger;
+import common.Task;
 
 public class Task2 extends Task {
     public Task2(Messenger messenger) {

@@ -1,4 +1,4 @@
-package com.tasks.task2;
+package task2;
 
 public interface StringConsts {
     String FIRST_MESSAGE="Let's check if envelopes fit one into another.";

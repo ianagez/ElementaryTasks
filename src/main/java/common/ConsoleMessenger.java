@@ -1,6 +1,4 @@
-package com.tasks.common;
-
-import com.tasks.common.Messenger;
+package common;
 
 import java.util.Scanner;
 

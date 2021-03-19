@@ -1,6 +1,6 @@
-package com.tasks.task4;
+package task4;
 
-import com.tasks.common.ConsoleMessenger;
+import common.ConsoleMessenger;
 
 public class MainForFileTask {
     public static void main(String[] args) {

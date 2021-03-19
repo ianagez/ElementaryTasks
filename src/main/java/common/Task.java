@@ -1,4 +1,4 @@
-package com.tasks.common;
+package common;
 
 public abstract class Task {
     protected Messenger messenger;

@@ -1,4 +1,4 @@
-package com.tasks.common;
+package common;
 
 public abstract class Messenger {
     public abstract void sendMessage(String message);
