@@ -1,11 +1,11 @@
 package task4;
 
-import common.Task;
 import common.Messenger;
+import common.Task;
 
 public class Task4 extends Task {
 
-    public Task4(Messenger messenger,String[] args) {
+    public Task4(Messenger messenger, String[] args) {
         super(messenger,args);
     }
     @Override

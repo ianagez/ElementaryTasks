@@ -8,6 +8,7 @@ public abstract class Task {
         this.messenger=messenger;
     }
     public Task(Messenger messenger,String[] args){
+        this.messenger=messenger;
         this.args=args;
     }
     abstract public void run();

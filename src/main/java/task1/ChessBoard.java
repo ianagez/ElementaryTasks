@@ -9,20 +9,24 @@ public class ChessBoard {
         this.width=width;
     }
 
-    public void draw(){
+    public String getChessBoardSchema(){
+        StringBuilder chessBoard=new StringBuilder();
         char even='*';
         char odd=' ';
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if(j%2==0){
-                    System.out.print(even);
+                    chessBoard.append(even);
                 }else
-                    System.out.print(odd);
+                    chessBoard.append(odd);
             }
-            System.out.println();
+            if(i < height-1){
+                chessBoard.append("\n");
+            }
             char temp=even;
             even=odd;
             odd=temp;
         }
+        return chessBoard.toString();
     }
 }
